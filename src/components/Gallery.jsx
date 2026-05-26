@@ -243,7 +243,7 @@ const Gallery = () => {
                 <div 
                   key={i} 
                   className="wheel-item"
-                  style={{ transform: `rotate(${angle}deg) translateY(-1100px)` }}
+                  style={{ '--item-angle': `${angle}deg` }}
                 >
                   <img src={photo} alt={`Smile ${i + 1}`} />
                 </div>
