@@ -1,0 +1,213 @@
+.pd-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pd-modal-content {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  position: relative;
+  animation: pdPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes pdPop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pd-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pd-close-btn:hover {
+  background: #e2e8f0;
+  color: var(--color-accent-pink);
+  transform: rotate(90deg);
+}
+
+.pd-header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.pd-header h2 {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.pd-header p {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.pd-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 
+    "flow festivals"
+    "meetings meetings";
+  gap: 30px;
+}
+
+.pd-learning-flow {
+  grid-area: flow;
+  background: #F8FAFC;
+  padding: 24px;
+  border-radius: var(--border-radius-md);
+  border-left: 6px solid var(--color-primary);
+}
+
+.pd-learning-flow h3 {
+  font-size: 1.6rem;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+}
+
+.flow-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flow-list li {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  background: white;
+  padding: 16px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.flow-month {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.pd-festivals {
+  grid-area: festivals;
+  background: rgba(255, 107, 152, 0.05);
+  padding: 24px;
+  border-radius: var(--border-radius-md);
+  border-top: 6px solid var(--color-accent-pink);
+}
+
+.pd-festivals h3 {
+  font-size: 1.6rem;
+  color: var(--color-accent-pink);
+  margin-bottom: 20px;
+}
+
+.festivals-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.festivals-list li {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  background: white;
+  padding: 14px 16px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s;
+}
+
+.festivals-list li:hover {
+  transform: translateX(4px);
+  color: var(--color-accent-pink);
+}
+
+.pd-meetings {
+  grid-area: meetings;
+  background: #FFFBEB; /* soft yellow */
+  padding: 24px;
+  border-radius: var(--border-radius-md);
+  border-top: 6px solid #F59E0B;
+}
+
+.pd-meetings h3 {
+  font-size: 1.6rem;
+  color: #D97706;
+  margin-bottom: 20px;
+}
+
+.meetings-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.meeting-card {
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s;
+}
+
+.meeting-card:hover {
+  transform: translateY(-4px);
+}
+
+.meeting-card h4 {
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.meeting-card p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "flow"
+      "festivals"
+      "meetings";
+  }
+  .meetings-list {
+    grid-template-columns: 1fr;
+  }
+}

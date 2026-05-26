@@ -1,0 +1,228 @@
+.dance-yoga-section {
+  background-color: white; 
+}
+
+.dy-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.dy-curriculum {
+  background: #F8FAFC;
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  border-left: 8px solid #8B5CF6; /* Lavender/Purple vibe */
+  box-shadow: var(--shadow-card);
+}
+
+.dy-curriculum h3 {
+  font-size: 1.8rem;
+  color: #6D28D9;
+  margin-bottom: 24px;
+}
+
+.dy-flow-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dy-flow-list li {
+  font-size: 1.15rem;
+  color: var(--color-text-light);
+  background: white;
+  padding: 16px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.dy-month {
+  font-weight: bold;
+  color: #8B5CF6;
+  margin-right: 8px;
+}
+
+.dy-apply-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dy-card {
+  background: white;
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  border-top: 6px solid transparent;
+  transition: transform 0.3s ease;
+}
+
+.dy-card:hover {
+  transform: translateY(-8px);
+}
+
+.dy-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.dy-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.dy-card p {
+  color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+
+.yoga-card { border-top-color: #8B5CF6; }
+.yoga-card h3 { color: #6D28D9; }
+.yoga-btn { background: #8B5CF6; border-color: #8B5CF6; }
+.yoga-btn:hover { background: #7C3AED; }
+
+.dance-card { border-top-color: #EC4899; } 
+.dance-card h3 { color: #BE185D; }
+.dance-btn { background: #EC4899; border-color: #EC4899; }
+.dance-btn:hover { background: #DB2777; }
+
+
+/* Modal Styles */
+.dy-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 4000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dy-modal {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dy-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dy-close:hover {
+  transform: rotate(90deg);
+  color: var(--color-accent-pink);
+}
+
+.dy-modal h2 {
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.dy-modal-desc {
+  color: #EF4444; 
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.dy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dy-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dy-form label {
+  font-weight: bold;
+  color: var(--color-text-main);
+  font-size: 1.1rem;
+}
+
+.dy-radio-group {
+  display: flex;
+  gap: 16px;
+}
+
+.dy-radio {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.2rem;
+}
+
+.dy-radio input {
+  display: none;
+}
+
+.dy-radio.yoga-sel {
+  border-color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  color: #6D28D9;
+}
+
+.dy-radio.dance-sel {
+  border-color: #EC4899;
+  background: rgba(236, 72, 153, 0.1);
+  color: #BE185D;
+}
+
+.dy-select {
+  padding: 16px;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.dy-select:focus {
+  border-color: var(--color-primary);
+}
+
+.dy-submit {
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .dy-layout {
+    grid-template-columns: 1fr;
+  }
+}

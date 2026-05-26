@@ -1,0 +1,109 @@
+.playground-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, transparent 0%, #E0F7FA 100%);
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none; /* purely decorative */
+}
+
+.pg-ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #81C784;
+  border-top: 4px solid #66BB6A;
+  z-index: 1;
+}
+
+.pg-scene {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 40px;
+}
+
+.pg-left, .pg-right {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.pg-svg-swing { width: 150px; height: 180px; }
+.pg-svg-seesaw { width: 200px; height: 100px; margin-bottom: 20px;}
+.pg-svg-flowers { width: 60px; height: 60px; margin-bottom: 10px; }
+
+.pg-svg-slide { width: 180px; height: 180px; margin-bottom: 10px;}
+.pg-svg-pinwheel { width: 80px; height: 120px; }
+.pg-svg-ball { width: 40px; height: 80px; margin-bottom: 20px;}
+
+/* Animations */
+.anim-swing {
+  transform-origin: 60px 20px;
+  animation: swing 3s ease-in-out infinite alternate;
+}
+@keyframes swing {
+  0% { transform: rotate(-25deg); }
+  100% { transform: rotate(25deg); }
+}
+
+.anim-seesaw {
+  transform-origin: 80px 50px;
+  animation: seesaw 2s ease-in-out infinite alternate;
+}
+@keyframes seesaw {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+.anim-slide {
+  animation: slideDown 3s ease-in infinite;
+}
+@keyframes slideDown {
+  0% { transform: translate(0, 0); opacity: 1; }
+  60% { transform: translate(-70px, 75px); opacity: 1; }
+  70% { transform: translate(-70px, 75px); opacity: 0; }
+  80% { transform: translate(0, 0); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+
+.anim-spin {
+  animation: spin 4s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.anim-bounce {
+  transform-origin: 20px 95px;
+  animation: bounce 0.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite alternate;
+}
+@keyframes bounce {
+  0% { transform: translateY(0) scaleY(0.8) scaleX(1.1); }
+  20% { transform: translateY(-10px) scaleY(1) scaleX(1); }
+  100% { transform: translateY(-60px); }
+}
+
+.anim-sway {
+  transform-origin: 40px 60px;
+  animation: sway 4s ease-in-out infinite alternate;
+}
+@keyframes sway {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-swing, .anim-seesaw, .anim-slide, .anim-spin, .anim-bounce, .anim-sway {
+    animation: none !important;
+  }
+}

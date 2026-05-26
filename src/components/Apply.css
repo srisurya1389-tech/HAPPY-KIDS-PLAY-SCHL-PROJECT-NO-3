@@ -1,0 +1,102 @@
+.apply-page {
+  background: var(--gradient-hero);
+  min-height: 100vh;
+  padding: 40px 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apply-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.back-btn:hover {
+  color: var(--color-primary);
+}
+
+.apply-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-card);
+}
+
+.apply-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.apply-header h2 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.apply-header p {
+  color: var(--color-text-light);
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-group input,
+.form-group select {
+  padding: 14px 16px;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  background-color: #F8FAFC;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
+  background-color: white;
+}
+
+.submit-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .apply-card {
+    padding: 32px 24px;
+  }
+}
