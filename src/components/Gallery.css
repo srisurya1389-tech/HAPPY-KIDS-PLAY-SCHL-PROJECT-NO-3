@@ -190,8 +190,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1998;
   opacity: 0;
@@ -208,9 +208,9 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 50vw;
+  width: 90%;
   max-width: 900px;
-  max-height: 60vh;
+  max-height: 80%;
   transform: translate(-50%, -50%) scale(0.98);
   background: white;
   border-radius: 16px;
@@ -299,8 +299,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   z-index: 1999;
@@ -318,8 +318,9 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 85vh;
+  height: 85dvh;
   background: linear-gradient(135deg, #E0F7FA 0%, #E8F5E9 50%, #B2EBF2 100%);
   z-index: 2000;
   border-top-left-radius: 40px;
@@ -338,14 +339,14 @@
 
 .close-wall-btn {
   position: absolute;
-  top: 32px;
-  right: 48px;
+  top: 16px;
+  right: 16px;
   background: white;
   color: var(--color-text-main);
   border: none;
   font-size: 1.5rem;
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   box-shadow: var(--shadow-soft);
   z-index: 2010;
