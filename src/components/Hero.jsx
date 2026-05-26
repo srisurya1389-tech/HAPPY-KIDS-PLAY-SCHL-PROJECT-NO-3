@@ -34,7 +34,7 @@ const Hero = () => {
         
         <div className="hero-image-wrapper">
           <div className="hero-image-bg"></div>
-          <img src="/src/assets/hero_kids_1779636545144.png" alt="Happy kids playing" className="hero-image" />
+          <img src="https://i.pinimg.com/736x/23/f5/35/23f53532a32fd65bc86b0b023c389c65.jpg" alt="Happy kids playing" className="hero-image" />
           <div className="hero-floating-card">
             <div className="floating-card-icon">🤩</div>
             <div className="floating-card-text">
