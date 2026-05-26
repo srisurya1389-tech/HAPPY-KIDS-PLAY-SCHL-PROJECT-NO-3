@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Gallery.css';
 
 // Import images or use paths
-const img1 = '/src/assets/gallery_1_1779636589238.png';
-const img2 = '/src/assets/gallery_2_1779636620471.png';
-const img3 = '/src/assets/gallery_3_1779636635738.png';
-const img4 = '/src/assets/gallery_4_1779636651525.png';
+const img1 = 'https://plain-apac-prod-public.komododecks.com/202605/26/7hzdGiCCF8xQYIR5f1su/image.jpg';
+const img2 = 'https://plain-apac-prod-public.komododecks.com/202605/26/w2gAZqxf3IN4AG1jatpH/image.jpg';
+const img3 = 'https://plain-apac-prod-public.komododecks.com/202605/26/Ullj7ZZ2hIc6NRZc66x9/image.jpg';
+const img4 = 'https://plain-apac-prod-public.komododecks.com/202605/26/bZ5nAn4Gml4TMRvbPyqw/image.jpg';
 
 const getYouTubeVideoId = (url) => {
   if (!url) return '';
