@@ -1,0 +1,91 @@
+.alphabet {
+  background-color: white;
+}
+
+.alphabet-intro {
+  max-width: 600px;
+  margin: 16px auto 0;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+.alphabet-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.alphabet-flow-item {
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  border-top: 4px solid var(--color-primary);
+}
+
+.alphabet-flow-stage {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 14px;
+}
+
+.alphabet-card {
+  background: white;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-card);
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease;
+}
+
+.alphabet-card:hover {
+  transform: translateY(-4px);
+}
+
+.alphabet-letter {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.alphabet-emoji {
+  font-size: 1.6rem;
+}
+
+.alphabet-word {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .alphabet-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .alphabet-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .alphabet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+}

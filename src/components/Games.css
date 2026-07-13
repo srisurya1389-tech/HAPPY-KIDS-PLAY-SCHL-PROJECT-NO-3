@@ -1,0 +1,131 @@
+.games {
+  background-color: var(--color-bg);
+}
+
+.games-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.memory-game {
+  background: #F8FAFC;
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  border-left: 8px solid var(--color-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.memory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.memory-header h3 {
+  font-size: 1.5rem;
+}
+
+.memory-moves {
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  font-size: 1.8rem;
+  background: white;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.memory-card:not(.is-flipped):hover {
+  transform: scale(1.05);
+}
+
+.memory-card.is-flipped {
+  background: var(--color-card-yellow);
+  transform: scale(1.02);
+}
+
+.memory-card.is-matched {
+  background: var(--color-card-green);
+}
+
+.memory-won {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.memory-reset {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.more-games h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.more-games-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.more-games-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: #F8FAFC;
+  padding: 16px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.more-games-icon {
+  font-size: 1.8rem;
+}
+
+.more-games-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.more-games-item p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .games-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-card {
+    font-size: 1.4rem;
+  }
+}

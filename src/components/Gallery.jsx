@@ -24,7 +24,7 @@ const getYouTubeVideoId = (url) => {
         return parsed.pathname.split('/embed/')[1].split('/')[0];
       }
     }
-  } catch (error) {
+  } catch {
     const match = trimmed.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|watch\?v=|v\/))([A-Za-z0-9_-]{11})/);
     if (match) return match[1];
   }
@@ -49,11 +49,6 @@ const Gallery = () => {
     : '';
   const [activeVideoSrc, setActiveVideoSrc] = useState('');
   const [activeFeaturedSrc, setActiveFeaturedSrc] = useState('');
-
-  const openVideo = () => {
-    if (baseVideoSrc) setActiveVideoSrc(baseVideoSrc + '&autoplay=1');
-    setIsVideoOpen(true);
-  };
 
   const closeVideo = () => {
     // Clear src to stop playback, then close overlay
@@ -196,15 +191,17 @@ const Gallery = () => {
                 </button>
               )}
 
-              <iframe
-                ref={featuredIframeRef}
-                className="featured-video-iframe"
-                src={activeFeaturedSrc}
-                title="Featured Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              {activeFeaturedSrc && (
+                <iframe
+                  ref={featuredIframeRef}
+                  className="featured-video-iframe"
+                  src={activeFeaturedSrc}
+                  title="Featured Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
           ) : (
             <div className="featured-video-placeholder">Video not set yet</div>
@@ -262,15 +259,17 @@ const Gallery = () => {
           </div>
           <div className="video-popup-content">
             {hasVideoUrl ? (
-              <iframe
-                ref={iframeRef}
-                className="video-frame"
-                src={activeVideoSrc}
-                title="Happy Kids Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              activeVideoSrc && (
+                <iframe
+                  ref={iframeRef}
+                  className="video-frame"
+                  src={activeVideoSrc}
+                  title="Happy Kids Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )
             ) : (
               <div className="video-placeholder">
                 <h3>Video link not set yet</h3>

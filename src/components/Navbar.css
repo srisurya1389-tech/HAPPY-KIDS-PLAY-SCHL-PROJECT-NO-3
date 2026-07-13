@@ -34,6 +34,12 @@
 
 .logo-icon {
   font-size: 2rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(-12deg) scale(1.15);
 }
 
 .logo-text {
@@ -43,16 +49,221 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 14px;
 }
 
 .nav-links a {
-  font-size: 1rem;
+  position: relative;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text-light);
   transition: color 0.2s ease;
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  transition: width 0.25s ease;
 }
 
 .nav-links a:hover {
   color: var(--color-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-more {
+  position: relative;
+}
+
+.nav-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  transition: color 0.2s ease;
+  padding: 0 0 4px;
+}
+
+.nav-more-btn:hover,
+.nav-more-btn[aria-expanded='true'] {
+  color: var(--color-primary);
+}
+
+.nav-more-chevron {
+  font-size: 0.75rem;
+  transition: transform 0.25s ease;
+}
+
+.nav-more-chevron.open {
+  transform: rotate(180deg);
+}
+
+.nav-more-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  min-width: 160px;
+  background: white;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.nav-more-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-more-dropdown a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.nav-more-dropdown a::after {
+  display: none;
+}
+
+.nav-more-dropdown a:hover {
+  color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.nav-links-mobile-apply {
+  display: none;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-text-main);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .navbar.menu-open .nav-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .navbar.menu-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.menu-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    background: white;
+    box-shadow: var(--shadow-card);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar.menu-open .nav-links {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 16px;
+  }
+
+  .nav-links-mobile-apply {
+    display: block;
+    padding: 16px;
+  }
+
+  .nav-links-mobile-apply .btn-primary {
+    width: 100%;
+  }
+
+  /* More dropdown becomes an inline accordion inside the mobile menu instead of a floating panel */
+  .nav-more-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .nav-more-dropdown {
+    position: static;
+    min-width: 0;
+    background: var(--color-bg);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-more-dropdown.open {
+    max-height: 300px;
+    padding: 8px 0;
+  }
+
+  .nav-more-dropdown a {
+    padding: 12px 16px;
+    text-align: center;
+  }
 }

@@ -7,6 +7,7 @@
   --color-accent-pink: #FF6B98;
   --color-card-yellow: #FFF3C4;
   --color-card-green: #D8F3DC;
+  --color-bg-tint: #EAF8FC;
   
   --gradient-hero: linear-gradient(135deg, #FFF4CC 0%, #FFE4D6 30%, #E0F7FA 70%, #B3E5FC 100%);
   --gradient-admissions: linear-gradient(135deg, #FFCF54 0%, #FFA852 40%, #FF8CA1 100%);
@@ -67,6 +68,8 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .btn-primary {
@@ -102,6 +105,114 @@ button {
   transform: translateY(-2px);
   box-shadow: var(--shadow-card);
   border-color: #EEE;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: scale(0.96);
+}
+
+/* Scroll-reveal: gated behind .js-reveal so content stays visible with JS off/crawlers */
+.js-reveal main > section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js-reveal main > section.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Kids-themed watermark texture behind every section (the hero's own gradient background naturally overrides this) */
+main > section {
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%23172B4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.05'%3E%3Ccircle cx='22' cy='24' r='7'/%3E%3Crect x='96' y='18' width='16' height='16' rx='3'/%3E%3Cpath d='M40 96l6-16 6 16-6-5z'/%3E%3Cline x1='90' y1='100' x2='108' y2='84'/%3E%3Cpath d='M112 60c4-6 12-6 14 0s-4 10-7 10-9-4-7-10z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Corner accents: a children's-item emoji that stays in view while scrolling through its section.
+   Sticky + zero-height keeps it from pushing section content around while still tracking the
+   viewport instead of the section's edge. Keyed by id (not position) so a section keeps its
+   accent no matter which page it renders on, and adding/removing/reordering sections is safe. */
+main > section::before,
+main > section::after {
+  content: '';
+  display: block;
+  width: fit-content;
+  height: 0;
+  overflow: visible;
+  position: sticky;
+  font-size: 2.6rem;
+  line-height: 1;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: bgDrift 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+main > section::before { top: 110px; margin: 0 0 0 20px; }
+main > section::after { bottom: 20px; margin: 0 20px 0 auto; animation-delay: 1s; }
+
+@keyframes bgDrift {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(6deg); }
+}
+
+main > section#accreditations::before { content: '🎈'; }
+main > section#accreditations::after { content: '🛡️'; }
+main > section.why-choose-us-section::before { content: '🧡'; }
+main > section.why-choose-us-section::after { content: '🧩'; }
+main > section#about::before { content: '📖'; }
+main > section#about::after { content: '🧸'; }
+main > section#philosophy::before { content: '🌱'; }
+main > section#philosophy::after { content: '💡'; }
+main > section#programs::before { content: '🎒'; }
+main > section#programs::after { content: '✏️'; }
+main > section#dance-yoga::before { content: '🎵'; }
+main > section#dance-yoga::after { content: '👟'; }
+main > section#alphabet::before { content: '🔤'; }
+main > section#alphabet::after { content: '✏️'; }
+main > section#games::before { content: '🎲'; }
+main > section#games::after { content: '🧩'; }
+main > section#safety::before { content: '🛡️'; }
+main > section#safety::after { content: '🔒'; }
+main > section#team::before { content: '🖍️'; }
+main > section#team::after { content: '📝'; }
+main > section#gallery::before { content: '📷'; }
+main > section#gallery::after { content: '🎨'; }
+main > section#testimonials::before { content: '💬'; }
+main > section#testimonials::after { content: '⭐'; }
+main > section#kidscorner::before { content: '🎨'; }
+main > section#kidscorner::after { content: '🖼️'; }
+main > section#admissions::before { content: '🎒'; }
+main > section#admissions::after { content: '📋'; }
+main > section#calendar::before { content: '📅'; }
+main > section#calendar::after { content: '⏰'; }
+main > section#resources::before { content: '📚'; }
+main > section#resources::after { content: '💡'; }
+main > section#faq::before { content: '❓'; }
+main > section#faq::after { content: '💭'; }
+main > section#enquiry::before { content: '💌'; }
+main > section#enquiry::after { content: '📱'; }
+main > section#contact::before { content: '📍'; }
+main > section#contact::after { content: '✉️'; }
+
+@media (max-width: 640px) {
+  main > section::before,
+  main > section::after {
+    font-size: 1.8rem;
+    opacity: 0.1;
+  }
 }
 
 .section-title {

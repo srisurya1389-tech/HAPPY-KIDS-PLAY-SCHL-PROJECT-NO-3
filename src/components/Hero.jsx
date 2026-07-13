@@ -1,48 +1,93 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
-  const navigate = useNavigate();
+  const activities = [
+    { id: 1, icon: '🎨', label: 'Art', bgColor: '#ffd5c8', className: 'card-art' },
+    { id: 2, icon: '📚', label: 'Story time', bgColor: '#c2f0db', className: 'card-story' },
+    { id: 3, icon: '🎵', label: 'Music', bgColor: '#ffe79a', className: 'card-music' },
+    { id: 4, icon: '🌲', label: 'Nature', bgColor: '#bfe3fc', className: 'card-nature' }
+  ];
+
+  const handleEnquireClick = (e) => {
+    e.preventDefault();
+    const enquirySection = document.getElementById('enquiry');
+    if (enquirySection) {
+      enquirySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleProgramsClick = (e) => {
+    e.preventDefault();
+    const programsSection = document.getElementById('programs');
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="home" className="hero">
+      <div className="hero-decor-blob blob-1"></div>
+      <div className="hero-decor-blob blob-2"></div>
+      
       <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-badge">
-            <span>🌟 Ages 2 – 6 years</span>
+            <span className="badge-icon">🎨</span>
+            <span className="badge-text">NOW ENROLLING · AGES 2-6</span>
           </div>
+          
           <h1 className="hero-title">
-            <span className="title-dark">Welcome to</span>
-            <br />
-            <span className="title-gradient">HAPPY KIDS</span>
+            A joyful place <br />
+            where <span className="highlight-text">happy kids</span> <br />
+            grow.
           </h1>
-          <h2 className="hero-subtitle">
-            ✨ Learning with Joy ✨
-          </h2>
+          
           <p className="hero-description">
-            A warm, colourful playschool where little hearts grow big imaginations. Songs, stories, art and play — every single day.
+            A warm, play-based preschool that nurtures curiosity, kindness and confidence — 
+            one giggle, story and finger-painting at a time.
           </p>
+          
           <div className="hero-actions">
-            <button className="btn-primary" onClick={() => navigate('/apply')}>Apply Now 🎒</button>
-            <a href="#programs" className="btn-secondary" style={{display: 'inline-block', lineHeight: 'normal'}}>See Programs</a>
+            <a href="#enquiry" className="hero-btn btn-filled" onClick={handleEnquireClick}>
+              Enquire now
+            </a>
+            <a href="#programs" className="hero-btn btn-outlined" onClick={handleProgramsClick}>
+              Explore programs
+            </a>
           </div>
-          <div className="hero-decoration">
-             🌈
+          
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">12+</span>
+              <span className="stat-label">Years nurturing</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">1:6</span>
+              <span className="stat-label">Teacher ratio</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">300+</span>
+              <span className="stat-label">Happy families</span>
+            </div>
           </div>
         </div>
         
-        <div className="hero-image-wrapper">
-          <div className="hero-image-bg"></div>
-          <img src="https://i.pinimg.com/736x/23/f5/35/23f53532a32fd65bc86b0b023c389c65.jpg" alt="Happy kids playing" className="hero-image" />
-          <div className="hero-floating-card">
-            <div className="floating-card-icon">🤩</div>
-            <div className="floating-card-text">
-              <strong>500+ Happy Kids</strong>
-              <span>and counting!</span>
+        <div className="hero-visual">
+          <div className="floating-card-wrapper">
+            <div className="activities-grid-card">
+              {activities.map((act) => (
+                <div 
+                  key={act.id} 
+                  className={`activity-card ${act.className}`} 
+                  style={{ backgroundColor: act.bgColor }}
+                >
+                  <span className="activity-icon">{act.icon}</span>
+                  <span className="activity-label">{act.label}</span>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="floating-star">⭐</div>
         </div>
       </div>
     </section>

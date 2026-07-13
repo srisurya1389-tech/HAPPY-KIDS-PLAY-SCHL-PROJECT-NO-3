@@ -22,7 +22,7 @@ const initialEvents = {
 
 const CalendarSection = () => {
   const [currentMonth, setCurrentMonth] = useState(4); // Default to May
-  const [currentYear, setCurrentYear] = useState(2026);
+  const [currentYear] = useState(2026);
   const [eventsData, setEventsData] = useState(initialEvents);
   
   // Modal states: 'none', 'password', 'addEvent', 'manageEvents'

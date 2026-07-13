@@ -1,0 +1,124 @@
+.team {
+  background-color: white;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.team-card {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 3px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--member-bg);
+}
+
+.team-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 105%; /* A slightly tall aspect ratio */
+  overflow: hidden;
+  background-color: var(--member-bg);
+}
+
+.team-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-img {
+  transform: scale(1.06);
+}
+
+.team-experience {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  color: white;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-role {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.team-education {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  background-color: #F0F2F5;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-pill);
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.team-quote {
+  font-style: italic;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-left: 3px solid var(--member-bg);
+  padding-left: 12px;
+  margin-top: auto;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 40px auto 0 auto;
+  }
+}
