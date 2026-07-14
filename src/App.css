@@ -1,12 +1,42 @@
 .footer {
-  text-align: center;
   padding: 32px 0;
-  background-color: var(--color-bg);
-  color: var(--color-text-light);
+  background-color: #1C3D5A;
+  color: #9DB4C6;
   font-family: var(--font-body);
-  border-top: 1px solid #EEE;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFD43B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.footer-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
 }
 
 .footer p {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }

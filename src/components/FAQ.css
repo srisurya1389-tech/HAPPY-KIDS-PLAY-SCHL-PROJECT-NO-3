@@ -21,7 +21,7 @@
 
 .faq-item:hover {
   box-shadow: var(--shadow-card);
-  border-color: rgba(0, 180, 216, 0.15);
+  border-color: rgba(28, 126, 214, 0.15);
 }
 
 .faq-item.open {

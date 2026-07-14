@@ -2,7 +2,7 @@ import React from 'react';
 import './ProgramDetailsModal.css';
 
 const programData = {
-  'Nursery': {
+  'Tiny Tots': {
     icon: '🌱',
     subtitle: '(9 months active)',
     description: 'Academia: 12 months ➔ 9 months learning + 3 months holidays',
@@ -13,7 +13,7 @@ const programData = {
       { month: 'Months 10–12 (Holiday)', desc: 'Rest, family bonding, optional fun workshops.' }
     ]
   },
-  'LKG': {
+  'Explorers': {
     icon: '📘',
     subtitle: '(10 months active + 2 months summer holidays)',
     description: '',
@@ -24,7 +24,7 @@ const programData = {
       { month: 'Months 11–12', desc: 'Revision, small stage performances, fun projects.' }
     ]
   },
-  'UKG': {
+  'Kindergarten Prep': {
     icon: '📖',
     subtitle: '(10 months active + 2 months holidays)',
     description: '',

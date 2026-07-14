@@ -15,7 +15,7 @@ const Team = () => {
       quote: '“Every child is a unique flower, and together they make this world a beautiful garden.”',
       image: directorImg,
       bgColor: '#FFE4E6',
-      badgeColor: '#FF6B98'
+      badgeColor: '#FF6B6B'
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const Team = () => {
       quote: '“Watching a toddler achieve a new milestone is the most rewarding feeling in the world.”',
       image: nurseryTeacherImg,
       bgColor: '#E0F7FA',
-      badgeColor: '#00B4D8'
+      badgeColor: '#1C7ED6'
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const Team = () => {
       experience: '5+ Years Experience',
       quote: '“We use colors, music, and dance to let kids express what words cannot yet say.”',
       image: artTeacherImg,
-      bgColor: '#FFF3C4',
+      bgColor: '#FFF3BF',
       badgeColor: '#FFCF54'
     }
   ];

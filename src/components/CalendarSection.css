@@ -47,7 +47,7 @@
 }
 
 .month-item:hover {
-  background: rgba(0, 180, 216, 0.05);
+  background: rgba(28, 126, 214, 0.05);
   color: var(--color-primary);
   transform: translateX(4px);
 }
@@ -55,7 +55,7 @@
 .month-item.active {
   background: var(--color-primary);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.2);
+  box-shadow: 0 4px 12px rgba(28, 126, 214, 0.2);
 }
 
 .calendar-main {

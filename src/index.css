@@ -1,24 +1,24 @@
 :root {
-  --color-bg: #FCFAF5;
-  --color-text-main: #172B4D;
-  --color-text-light: #505F79;
-  --color-primary: #00B4D8;
-  --color-primary-hover: #0096C7;
-  --color-accent-pink: #FF6B98;
-  --color-card-yellow: #FFF3C4;
-  --color-card-green: #D8F3DC;
-  --color-bg-tint: #EAF8FC;
-  
-  --gradient-hero: linear-gradient(135deg, #FFF4CC 0%, #FFE4D6 30%, #E0F7FA 70%, #B3E5FC 100%);
-  --gradient-admissions: linear-gradient(135deg, #FFCF54 0%, #FFA852 40%, #FF8CA1 100%);
-  --gradient-button: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);
+  --color-bg: #FFF9E8;
+  --color-text-main: #1C3D5A;
+  --color-text-light: #6B7C8C;
+  --color-primary: #1C7ED6;
+  --color-primary-hover: #145ba0;
+  --color-accent-pink: #FF6B6B;
+  --color-card-yellow: #FFF3BF;
+  --color-card-green: #D3F9D8;
+  --color-bg-tint: #EAF6FF;
 
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-card: 0 8px 24px rgba(23, 43, 77, 0.08);
-  --shadow-btn: 0 4px 14px rgba(0, 180, 216, 0.4);
+  --gradient-hero: linear-gradient(135deg, #FFF9E8 0%, #FDEFC8 30%, #D4F2E8 70%, #CCEEF9 100%);
+  --gradient-admissions: linear-gradient(135deg, #FFD43B 0%, #FF922B 60%, #FF6B6B 100%);
+  --gradient-button: linear-gradient(135deg, #4DABF7 0%, #1C7ED6 100%);
 
-  --font-heading: 'Fredoka', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --shadow-soft: 0 10px 30px rgba(28, 61, 90, 0.06);
+  --shadow-card: 0 8px 24px rgba(28, 61, 90, 0.1);
+  --shadow-btn: 0 4px 14px rgba(28, 126, 214, 0.4);
+
+  --font-heading: 'Baloo 2', cursive;
+  --font-body: 'Poppins', sans-serif;
 
   --border-radius-lg: 32px;
   --border-radius-md: 24px;
@@ -63,6 +63,35 @@ button {
   outline: none;
 }
 
+/* Restores a visible focus ring for keyboard users only (mouse clicks won't trigger it) —
+   the blanket outline:none above otherwise leaves buttons with zero focus indicator. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 12px;
+  background: var(--color-primary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 /* Common Utilities */
 .container {
   max-width: 1200px;
@@ -85,7 +114,7 @@ button {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.6);
+  box-shadow: 0 6px 20px rgba(28, 126, 214, 0.6);
   background: var(--color-primary-hover);
 }
 
@@ -136,7 +165,7 @@ button {
 /* Kids-themed watermark texture behind every section (the hero's own gradient background naturally overrides this) */
 main > section {
   position: relative;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%23172B4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.05'%3E%3Ccircle cx='22' cy='24' r='7'/%3E%3Crect x='96' y='18' width='16' height='16' rx='3'/%3E%3Cpath d='M40 96l6-16 6 16-6-5z'/%3E%3Cline x1='90' y1='100' x2='108' y2='84'/%3E%3Cpath d='M112 60c4-6 12-6 14 0s-4 10-7 10-9-4-7-10z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%231C3D5A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.05'%3E%3Ccircle cx='22' cy='24' r='7'/%3E%3Crect x='96' y='18' width='16' height='16' rx='3'/%3E%3Cpath d='M40 96l6-16 6 16-6-5z'/%3E%3Cline x1='90' y1='100' x2='108' y2='84'/%3E%3Cpath d='M112 60c4-6 12-6 14 0s-4 10-7 10-9-4-7-10z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
@@ -170,36 +199,30 @@ main > section::after { bottom: 20px; margin: 0 20px 0 auto; animation-delay: 1s
 
 main > section#accreditations::before { content: '🎈'; }
 main > section#accreditations::after { content: '🛡️'; }
-main > section.why-choose-us-section::before { content: '🧡'; }
-main > section.why-choose-us-section::after { content: '🧩'; }
 main > section#about::before { content: '📖'; }
 main > section#about::after { content: '🧸'; }
-main > section#philosophy::before { content: '🌱'; }
-main > section#philosophy::after { content: '💡'; }
 main > section#programs::before { content: '🎒'; }
 main > section#programs::after { content: '✏️'; }
-main > section#dance-yoga::before { content: '🎵'; }
-main > section#dance-yoga::after { content: '👟'; }
+main > section#daily-activities::before { content: '🖍️'; }
+main > section#daily-activities::after { content: '🧩'; }
+main > section#home-gallery::before { content: '📷'; }
+main > section#home-gallery::after { content: '🎨'; }
+main > section#testimonials::before { content: '💬'; }
+main > section#testimonials::after { content: '⭐'; }
+main > section#book-tour::before { content: '🚌'; }
+main > section#book-tour::after { content: '🎈'; }
 main > section#alphabet::before { content: '🔤'; }
 main > section#alphabet::after { content: '✏️'; }
 main > section#games::before { content: '🎲'; }
 main > section#games::after { content: '🧩'; }
-main > section#safety::before { content: '🛡️'; }
-main > section#safety::after { content: '🔒'; }
 main > section#team::before { content: '🖍️'; }
 main > section#team::after { content: '📝'; }
 main > section#gallery::before { content: '📷'; }
 main > section#gallery::after { content: '🎨'; }
-main > section#testimonials::before { content: '💬'; }
-main > section#testimonials::after { content: '⭐'; }
-main > section#kidscorner::before { content: '🎨'; }
-main > section#kidscorner::after { content: '🖼️'; }
 main > section#admissions::before { content: '🎒'; }
 main > section#admissions::after { content: '📋'; }
 main > section#calendar::before { content: '📅'; }
 main > section#calendar::after { content: '⏰'; }
-main > section#resources::before { content: '📚'; }
-main > section#resources::after { content: '💡'; }
 main > section#faq::before { content: '❓'; }
 main > section#faq::after { content: '💭'; }
 main > section#enquiry::before { content: '💌'; }

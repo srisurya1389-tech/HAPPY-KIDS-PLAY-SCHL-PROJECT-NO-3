@@ -1,15 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import usePageMeta from '../hooks/usePageMeta';
 import './StandalonePage.css';
 
-const StandalonePage = ({ children }) => {
+const StandalonePage = ({ children, title, description }) => {
   const navigate = useNavigate();
+  usePageMeta(title, description);
 
   return (
     <>
       <Navbar />
-      <main className="standalone-page">
+      <main id="main-content" className="standalone-page">
         <div className="container">
           <button className="standalone-back" onClick={() => navigate('/')}>← Back to Home</button>
         </div>

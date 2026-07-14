@@ -84,7 +84,7 @@
 .form-group input:focus,
 .form-group select:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
+  box-shadow: 0 0 0 3px rgba(28, 126, 214, 0.2);
   background-color: white;
 }
 
@@ -93,6 +93,12 @@
   width: 100%;
   padding: 16px;
   font-size: 1.2rem;
+}
+
+.apply-privacy {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
 }
 
 @media (max-width: 768px) {

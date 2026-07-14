@@ -41,7 +41,7 @@
   padding: 16px 40px;
   color: var(--color-primary);
   border: 2px dashed var(--color-primary);
-  background: rgba(0, 180, 216, 0.05);
+  background: rgba(28, 126, 214, 0.05);
 }
 
 .wall-btn:hover {

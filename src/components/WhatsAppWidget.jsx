@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { openExternal } from '../utils/openExternal';
 import './WhatsAppWidget.css';
 
 const WhatsAppWidget = () => {
@@ -12,8 +13,7 @@ const WhatsAppWidget = () => {
   }, []);
 
   const handleClick = () => {
-    // Open a mock WhatsApp link or real one. Let's use a standard template.
-    window.open('https://wa.me/1234567890?text=Hello!%20I%20am%20interested%20in%20Happy%20Kids%20admissions.', '_blank');
+    openExternal('https://wa.me/8247389473?text=Hello!%20I%20am%20interested%20in%20Happy%20Kids%20admissions.');
   };
 
   return (

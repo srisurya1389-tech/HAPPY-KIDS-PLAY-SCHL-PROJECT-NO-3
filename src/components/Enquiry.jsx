@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { openExternal } from '../utils/openExternal';
 import './Enquiry.css';
 
 const PHONE_NUMBER = '8247389473';
@@ -20,6 +21,17 @@ const Enquiry = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let stored;
+    try {
+      stored = JSON.parse(localStorage.getItem('happyKidsEnquiries') || '[]');
+    } catch (err) {
+      console.error("Failed to parse enquiries from localStorage:", err);
+      stored = [];
+    }
+    stored.push({ id: Date.now().toString(), ...form, timestamp: Date.now() });
+    localStorage.setItem('happyKidsEnquiries', JSON.stringify(stored));
+
     const message =
       `Hello! I'd like to enquire about Happy Kids Playschool.\n\n` +
       `Name: ${form.name}\n` +
@@ -27,7 +39,7 @@ const Enquiry = () => {
       `Child's Age: ${form.childAge}\n` +
       `Program: ${form.program}\n` +
       `Message: ${form.message || '-'}`;
-    window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+    openExternal(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`);
     setSubmitted(true);
   };
 
@@ -121,6 +133,9 @@ const Enquiry = () => {
               </div>
 
               <button type="submit" className="btn-primary enquiry-submit">Send Enquiry 💬</button>
+              <p className="enquiry-privacy">
+                We'll only use these details to contact you about admissions — never shared with third parties.
+              </p>
             </form>
           )}
         </div>

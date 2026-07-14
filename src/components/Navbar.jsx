@@ -64,7 +64,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <div className="container navbar-container">
         <div className="logo" onClick={() => navigate('/')}>
           <span className="logo-icon">🧸</span>
@@ -116,7 +118,8 @@ const Navbar = () => {
           </button>
         )}
       </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

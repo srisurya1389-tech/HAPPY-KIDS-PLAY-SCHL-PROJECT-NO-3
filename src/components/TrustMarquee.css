@@ -1,0 +1,46 @@
+.trust-marquee {
+  overflow: hidden;
+  background: white;
+  border-top: 1px solid rgba(23, 43, 77, 0.06);
+  border-bottom: 1px solid rgba(23, 43, 77, 0.06);
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 56px;
+  animation: trustMarqueeScroll 26s linear infinite;
+}
+
+.trust-marquee:hover .trust-marquee__track {
+  animation-play-state: paused;
+}
+
+.trust-marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--color-text-main);
+  white-space: nowrap;
+}
+
+.trust-marquee__icon {
+  font-size: 1.3rem;
+}
+
+@keyframes trustMarqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .trust-marquee__item {
+    font-size: 0.9rem;
+  }
+}

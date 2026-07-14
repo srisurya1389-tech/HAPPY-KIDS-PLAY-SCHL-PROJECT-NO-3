@@ -1,4 +1,5 @@
 import React from 'react';
+import { openExternal } from '../utils/openExternal';
 import './Contact.css';
 
 const Contact = () => {
@@ -55,13 +56,13 @@ const Contact = () => {
             <div className="map-actions">
               <button
                 className="btn-primary"
-                onClick={() => window.open(mapsDirectionsUrl, '_blank')}
+                onClick={() => openExternal(mapsDirectionsUrl)}
               >
                 📍 Directions
               </button>
               <button
                 className="btn-primary"
-                onClick={() => window.open(mapsSearchUrl, '_blank')}
+                onClick={() => openExternal(mapsSearchUrl)}
               >
                 🚗 Start
               </button>

@@ -1,0 +1,51 @@
+.daily-activities {
+  background-color: var(--color-bg);
+}
+
+.daily-activities-intro {
+  max-width: 520px;
+  margin: 12px auto 0;
+  color: var(--color-text-light);
+}
+
+.daily-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.daily-activity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: white;
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease;
+}
+
+.daily-activity-card:hover {
+  transform: translateY(-6px);
+}
+
+.daily-activity-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.daily-activity-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+}
+
+.daily-activity-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}

@@ -2,14 +2,16 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustMarquee from './components/TrustMarquee';
 import Accreditations from './components/Accreditations';
-import WhyChooseUs from './components/WhyChooseUs';
 import About from './components/About';
-import Philosophy from './components/Philosophy';
 import Programs from './components/Programs';
+import DailyActivities from './components/DailyActivities';
+import HomeGallery from './components/HomeGallery';
 import Gallery from './components/Gallery';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
+import FinalCTA from './components/FinalCTA';
 import Alphabet from './components/Alphabet';
 import Games from './components/Games';
 import Admissions from './components/Admissions';
@@ -20,12 +22,10 @@ import Contact from './components/Contact';
 import Apply from './components/Apply';
 import Clouds from './components/Clouds';
 import Playground from './components/Playground';
-import DanceYoga from './components/DanceYoga';
-import SafetyFacilities from './components/SafetyFacilities';
-import ParentResources from './components/ParentResources';
-import KidsCorner from './components/KidsCorner';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import StandalonePage from './components/StandalonePage';
+import AdminPanel from './components/AdminPanel';
+import NotFound from './components/NotFound';
 import './App.css';
 
 const Home = () => {
@@ -70,28 +70,30 @@ const Home = () => {
     <>
       <Clouds />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
+        <TrustMarquee />
         <Accreditations />
-        <WhyChooseUs />
         <About />
-        <Philosophy />
         <Programs />
-        <DanceYoga />
-        <SafetyFacilities />
+        <DailyActivities />
+        <HomeGallery />
         <Testimonials />
-        <KidsCorner />
+        <FinalCTA />
+        <Enquiry />
         <Admissions />
         <CalendarSection />
-        <ParentResources />
-        <Enquiry />
         <Contact />
         <Playground />
       </main>
       <WhatsAppWidget />
       <footer className="footer">
-        <div className="container">
-          <p>© 2026 Happy Kids Playschool. Learning with Joy! ✨</p>
+        <div className="container footer-inner">
+          <div className="footer-brand">
+            <span className="footer-logo">🧸</span>
+            <span className="footer-name">Happy Kids</span>
+          </div>
+          <p>© 2026 Happy Kids Play School. All rights reserved.</p>
         </div>
       </footer>
     </>
@@ -104,11 +106,48 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/alphabet" element={<StandalonePage><Alphabet /></StandalonePage>} />
-        <Route path="/games" element={<StandalonePage><Games /></StandalonePage>} />
-        <Route path="/team" element={<StandalonePage><Team /></StandalonePage>} />
-        <Route path="/gallery" element={<StandalonePage><Gallery /></StandalonePage>} />
-        <Route path="/faq" element={<StandalonePage><FAQ /></StandalonePage>} />
+        <Route
+          path="/alphabet"
+          element={
+            <StandalonePage title="English Alphabets | Happy Kids" description="See how Happy Kids teaches the English alphabet through play, from letter recognition to first words.">
+              <Alphabet />
+            </StandalonePage>
+          }
+        />
+        <Route
+          path="/games"
+          element={
+            <StandalonePage title="Games & Activities | Happy Kids" description="Explore the learning games and activities Happy Kids uses to make every day playful.">
+              <Games />
+            </StandalonePage>
+          }
+        />
+        <Route
+          path="/team"
+          element={
+            <StandalonePage title="Meet the Team | Happy Kids" description="Meet the certified educators behind Happy Kids Playschool.">
+              <Team />
+            </StandalonePage>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <StandalonePage title="Gallery | Happy Kids" description="A look inside a day at Happy Kids Playschool — classrooms, activities and happy faces.">
+              <Gallery />
+            </StandalonePage>
+          }
+        />
+        <Route
+          path="/faq"
+          element={
+            <StandalonePage title="FAQs | Happy Kids" description="Answers to common questions about timings, fees, safety and admissions at Happy Kids Playschool.">
+              <FAQ />
+            </StandalonePage>
+          }
+        />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

@@ -2,17 +2,24 @@
   background-color: white;
 }
 
+.programs-intro {
+  max-width: 500px;
+  margin: 12px auto 0;
+  color: var(--color-text-light);
+}
+
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .program-card {
   background: white;
-  border-radius: var(--border-radius-lg);
-  padding: 40px;
+  border-radius: 28px;
+  padding: 32px;
   box-shadow: var(--shadow-soft);
+  border: 3px solid transparent;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -24,56 +31,37 @@
 }
 
 .program-icon-wrapper {
-  width: 80px;
-  height: 80px;
-  background: var(--color-bg);
-  border-radius: var(--border-radius-md);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .program-icon {
-  font-size: 3rem;
-}
-
-.program-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
 }
 
 .program-header h3 {
-  font-size: 1.8rem;
-}
-
-.program-age {
-  font-size: 0.9rem;
-  color: var(--color-text-light);
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin-bottom: 6px;
 }
 
 .program-desc {
-  color: #FF8CA1;
-  font-weight: 600;
-  margin-bottom: 16px;
-  font-size: 0.95rem;
-}
-
-.program-features {
-  list-style: none;
-  flex-grow: 1;
-  margin-bottom: 32px;
-}
-
-.program-features li {
-  margin-bottom: 12px;
   color: var(--color-text-light);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.program-schedule {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .program-btn {
