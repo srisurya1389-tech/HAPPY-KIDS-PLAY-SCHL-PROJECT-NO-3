@@ -298,74 +298,152 @@
   color: #8a97a3;
 }
 
-.hero-collage {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-  padding: 12px;
-}
-
-.collage-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 8px solid white;
-  box-shadow: 0 15px 35px rgba(28, 61, 90, 0.12), 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, z-index 0.3s ease;
+/* Photo Reels Styling */
+.hero-reel-container {
+  height: 540px;
+  overflow: hidden;
   position: relative;
-  z-index: 1;
+  padding: 20px 10px;
+  perspective: 1000px;
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
 
-.collage-main {
-  aspect-ratio: 3 / 4;
-  border-radius: 32px;
-  transform: rotate(-3deg);
-  opacity: 0;
-  animation: collageEnterMain 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+.hero-reel-track {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  transform: rotate(-2.5deg);
+  transform-origin: center;
+  height: 100%;
 }
 
-.collage-stack {
+.reel-column {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
+  will-change: transform;
 }
 
-.collage-small {
-  aspect-ratio: 1 / 1;
-  border-radius: 24px;
+.column-left {
+  animation: scrollUp 28s linear infinite;
 }
 
-.collage-stack .collage-img:nth-child(1) {
-  transform: rotate(3deg) translateY(4px);
-  opacity: 0;
-  animation: collageEnterTop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+.column-right {
+  animation: scrollDown 28s linear infinite;
 }
 
-.collage-stack .collage-img:nth-child(2) {
-  transform: rotate(-2deg) translateY(-4px);
-  opacity: 0;
-  animation: collageEnterBottom 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+/* Pause scroll when hovering over the track */
+.hero-reel-container:hover .reel-column {
+  animation-play-state: paused;
 }
 
-@keyframes collageEnterMain {
-  from { opacity: 0; transform: translateY(30px) scale(0.94) rotate(-3deg); }
-  to { opacity: 1; transform: translateY(0) scale(1) rotate(-3deg); }
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 
-@keyframes collageEnterTop {
-  from { opacity: 0; transform: translateY(30px) scale(0.94) rotate(3deg) translateY(4px); }
-  to { opacity: 1; transform: translateY(0) scale(1) rotate(3deg) translateY(4px); }
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
-@keyframes collageEnterBottom {
-  from { opacity: 0; transform: translateY(30px) scale(0.94) rotate(-2deg) translateY(-4px); }
-  to { opacity: 1; transform: translateY(0) scale(1) rotate(-2deg) translateY(-4px); }
+/* Polaroid Card */
+.polaroid-card {
+  background: #ffffff;
+  padding: 12px 12px 20px 12px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(28, 61, 90, 0.08), 0 3px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transform: rotate(var(--card-rotation, 0deg));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.collage-img:hover {
-  transform: scale(1.06) rotate(0deg) !important;
-  box-shadow: 0 25px 50px rgba(28, 61, 90, 0.22), 0 8px 20px rgba(0, 0, 0, 0.08);
-  z-index: 5;
+.polaroid-img {
+  width: 100%;
+  aspect-ratio: 1.1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.polaroid-caption {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #33475b;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Washi Tape Details */
+.washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 75px;
+  height: 22px;
+  background: rgba(255, 212, 59, 0.55); /* Playful pastel yellow tape */
+  backdrop-filter: blur(1px);
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
+  border-right: 2px dashed rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.reel-column:nth-child(even) .washi-tape {
+  background: rgba(116, 192, 252, 0.55); /* Alternate light blue tape */
+  transform: translateX(-50%) rotate(3deg);
+}
+
+/* Push Pin */
+.polaroid-pin {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Card Hover Animations */
+.polaroid-card:hover {
+  transform: scale(1.15) rotate(0deg) translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(28, 61, 90, 0.18), 0 8px 16px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+
+/* Smooth overlays */
+.reel-fade-top, .reel-fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 25px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.reel-fade-top {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(254, 242, 218, 0.9), transparent);
+}
+
+.reel-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(204, 238, 249, 0.9), transparent);
 }
 
 /* Responsiveness */
@@ -395,11 +473,79 @@
   }
 
   .hero-visual {
-    max-width: 480px;
+    max-width: 100%;
+    width: 100%;
   }
 
   .hero-certified-badge {
-    margin: 0 auto 16px;
+    margin: 0 auto 20px;
+  }
+
+  /* Shift to horizontal dual scrolling strip on mobile/tablet */
+  .hero-reel-container {
+    height: auto;
+    max-height: 260px;
+    padding: 15px 0;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  }
+
+  .hero-reel-track {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    transform: none;
+    height: auto;
+  }
+
+  .reel-column {
+    flex-direction: row;
+    width: max-content;
+    gap: 20px;
+  }
+
+  .column-left {
+    animation: scrollLeft 22s linear infinite;
+  }
+
+  .column-right {
+    animation: scrollRight 22s linear infinite;
+  }
+
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .polaroid-card {
+    width: 150px;
+    flex-shrink: 0;
+    padding: 8px 8px 14px 8px;
+  }
+
+  .polaroid-img {
+    aspect-ratio: 1.1 / 1;
+  }
+
+  .polaroid-caption {
+    font-size: 0.78rem;
+    margin-top: 8px;
+  }
+
+  .washi-tape {
+    width: 55px;
+    height: 16px;
+    top: -8px;
+  }
+
+  .reel-fade-top, .reel-fade-bottom {
+    display: none;
   }
 }
 

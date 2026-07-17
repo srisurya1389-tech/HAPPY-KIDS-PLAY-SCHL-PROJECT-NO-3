@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import outdoorPlay from '../assets/gallery_2_1779636620471.png';
 import artTime from '../assets/gallery_3_1779636635738.png';
 import classroomFun from '../assets/gallery_1_1779636589238.png';
+import sensoryPlay from '../assets/gallery_4_1779636651525.png';
+import happyGroup from '../assets/hero_kids_1779636545144.png';
+import splashKids from '../assets/splash_kids.png';
 import './Hero.css';
 
 // Counts up from 0 to `end` once, starting after `delay` ms so it lands in sync
@@ -42,6 +45,18 @@ const Hero = () => {
     e.preventDefault();
     document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const leftReel = [
+    { img: happyGroup, caption: 'Happy Friends 🧸', rotation: '-2deg' },
+    { img: outdoorPlay, caption: 'Outdoor Play 🏃‍♂️', rotation: '3deg' },
+    { img: splashKids, caption: 'Water Fun 💦', rotation: '-1deg' },
+  ];
+
+  const rightReel = [
+    { img: artTime, caption: 'Art & Crafts 🎨', rotation: '2deg' },
+    { img: classroomFun, caption: 'Class Fun 🌈', rotation: '-3deg' },
+    { img: sensoryPlay, caption: 'Sensory Games 🧩', rotation: '1deg' },
+  ];
 
   return (
     <section id="home" className="hero">
@@ -103,12 +118,50 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-collage">
-            <img src={outdoorPlay} alt="Kids playing outdoors" className="collage-img collage-main" />
-            <div className="collage-stack">
-              <img src={artTime} alt="Classroom art time" className="collage-img collage-small" />
-              <img src={classroomFun} alt="A colorful Happy Kids classroom" className="collage-img collage-small" />
+          <div className="hero-reel-container">
+            <div className="hero-reel-track">
+              {/* Left Column (scrolls up) */}
+              <div className="reel-column column-left">
+                {leftReel.map((card, i) => (
+                  <div key={`left-1-${i}`} className="polaroid-card" style={{ '--card-rotation': card.rotation }}>
+                    <div className="washi-tape"></div>
+                    <div className="polaroid-pin"></div>
+                    <img src={card.img} alt={card.caption} className="polaroid-img" />
+                    <span className="polaroid-caption">{card.caption}</span>
+                  </div>
+                ))}
+                {leftReel.map((card, i) => (
+                  <div key={`left-2-${i}`} className="polaroid-card" style={{ '--card-rotation': card.rotation }}>
+                    <div className="washi-tape"></div>
+                    <div className="polaroid-pin"></div>
+                    <img src={card.img} alt={card.caption} className="polaroid-img" />
+                    <span className="polaroid-caption">{card.caption}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Column (scrolls down) */}
+              <div className="reel-column column-right">
+                {rightReel.map((card, i) => (
+                  <div key={`right-1-${i}`} className="polaroid-card" style={{ '--card-rotation': card.rotation }}>
+                    <div className="washi-tape"></div>
+                    <div className="polaroid-pin"></div>
+                    <img src={card.img} alt={card.caption} className="polaroid-img" />
+                    <span className="polaroid-caption">{card.caption}</span>
+                  </div>
+                ))}
+                {rightReel.map((card, i) => (
+                  <div key={`right-2-${i}`} className="polaroid-card" style={{ '--card-rotation': card.rotation }}>
+                    <div className="washi-tape"></div>
+                    <div className="polaroid-pin"></div>
+                    <img src={card.img} alt={card.caption} className="polaroid-img" />
+                    <span className="polaroid-caption">{card.caption}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+            <div className="reel-fade-top"></div>
+            <div className="reel-fade-bottom"></div>
           </div>
         </div>
       </div>
